@@ -2,28 +2,28 @@
   <img src="https://cloud.githubusercontent.com/assets/2059754/24601246/753a7f36-1858-11e7-9d6b-7a0e64fb27f7.png" alt="bash logo"/>
 </p>
 
-## Table of Contents
-  1. [Basic Operations](#1-basic-operations)  
-    1.1. [File Operations](#11-file-operations)  
-    1.2. [Text Operations](#12-text-operations)  
-    1.3. [Directory Operations](#13-directory-operations)  
-    1.4. [SSH, System Info & Network Operations](#14-ssh-system-info--network-operations)  
-    1.5. [Process Monitoring Operations](#15-process-monitoring-operations)
-  2. [Basic Shell Programming](#2-basic-shell-programming)  
-    2.1. [Variables](#21-variables)  
-    2.2  [Array](#22-array)  
-    2.3. [String Substitution](#23-string-substitution)  
-    2.4. [Functions](#24-functions)  
-    2.5. [Conditionals](#25-conditionals)  
-    2.6. [Loops](#26-loops)  
-  3. [Tricks](#3-tricks)  
-  4. [Debugging](#4-debugging)  
+## 目录
+  1. [基本操作](#1-basic-operations)  
+    1.1. [文件操作](#11-file-operations)  
+    1.2. [文本操作](#12-text-operations)  
+    1.3. [目录操作](#13-directory-operations)  
+    1.4. [SSH、系统信息和网络操作](#14-ssh-system-info--network-operations)  
+    1.5. [进程监控操作](#15-process-monitoring-operations)
+  2. [基本 shell 编程](#2-basic-shell-programming)  
+    2.1. [变量](#21-variables)  
+    2.2  [数组](#22-array)  
+    2.3. [字符串替换](#23-string-substitution)  
+    2.4. [函数](#24-functions)  
+    2.5. [条件语句](#25-conditionals)  
+    2.6. [循环语句](#26-loops)  
+  3. [小技巧](#3-tricks)  
+  4. [调试](#4-debugging)  
   
 
-# 1. Basic Operations
+# 1. 基本操作
 
 ### a. `export`
-Displays all environment variables. If you want to get details of a specific variable, use `echo $VARIABLE_NAME`.  
+输出所有的环境变量。 如果你想查看某个特定变量的值，用`echo $VARIABLE_NAME`
 ```bash
 export
 ```
@@ -40,7 +40,7 @@ $ echo $AWS_HOME
 ```
 
 ### b. `whatis`
-whatis shows description for user commands, system calls, library functions, and others in manual pages
+whatis 显示某个用户命令、系统调用或库函数的描述文档，或操作手册中存在的其他文档。
 ```bash
 whatis something
 ```
@@ -51,7 +51,7 @@ bash (1)             - GNU Bourne-Again SHell
 ```
 
 ### c. `whereis`
-whereis searches for executables, source files, and manual pages using a database built by system automatically.
+whereis 查找可执行文件、源文件或者说明文档的位置，使用的是一个系统自动构建的数据库。
 ```bash
 whereis name
 ```
@@ -62,7 +62,7 @@ $ whereis php
 ```
 
 ### d. `which`
-which searches for executables in the directories specified by the environment variable PATH. This command will print the full path of the executable(s).
+which 在环境变量 PATH 指定的所有文件夹中查找可执行文件的位置。它会打印出可执行文件的绝对路径。
 ```bash
 which program_name 
 ```
@@ -73,7 +73,7 @@ $ which php
 ```
 
 ### e. clear
-Clears content on window.
+清空窗口中的内容。
 
 ## 1.1. File Operations
 <table>
@@ -104,11 +104,11 @@ Clears content on window.
 </table>
 
 ### a. `cat`
-It can be used for the following purposes under UNIX or Linux.  
-* Display text files on screen
-* Copy text files  
-* Combine text files  
-* Create new text files  
+在 UNIX 和 Linux 中，它有以下几种用途 
+* 把文本文件显示在屏幕上
+* 复制文本文件  
+* 合并文本文件  
+* 创建新的文本文件  
 ```bash
 cat filename
 cat file1 file2 
@@ -117,32 +117,32 @@ cat < file1 > file2 #copy file1 to file2
 ```
 
 ### b. `chmod`
-The chmod command stands for "change mode" and allows you to change the read, write, and execute permissions on your files and folders. For more information on this command check this [link](https://ss64.com/bash/chmod.html).
+`chmod` 是 `change mod` 的意思，它用来改变文件或文件夹的读、写和执行权限。详细信息参见[这个链接](https://ss64.com/bash/chmod.html)
 ```bash
 chmod -options filename
 ```
 
 ### c. `chown`
-The chown command stands for "change owner", and allows you to change the owner of a given file or folder, which can be a user and a group. Basic usage is simple forward first comes the user (owner), and then the group, delimited by a colon.
+`chown` 是 `change owner` 的意思，它用来改变一个文件或者文件夹的所有者，所有者可以是一个用户或一个用户组。
 ```bash
 chown -options user:group filename
 ```
 
 ### d. `cp`
-Copies a file from one location to other.  
+把一个文件从一个位置复制到另外一个位置 
 ```bash
 cp filename1 filename2
 ```
-Where `filename1` is the source path to the file and `filename2` is the destination path to the file.
+上面 `filename1` 是源文件位置， `filename2` 是目标位置（精确到文件名）。
 
-### e. `diff`
-Compares files, and lists their differences.  
+### e. `diff` 
+比对两个文件，输出他们的差异。
 ```bash
 diff filename1 filename2
 ```
 
 ### f. `file`
-Determine file type.  
+检测文件类型 
 ```bash
 file filename
 ```
@@ -152,7 +152,7 @@ $ file index.html
  index.html: HTML document, ASCII text
 ```
 ### g. `find`
-Find files in directory
+在某个文件夹中用一定规则查找文件
 ```bash
 find directory options pattern
 ```
@@ -163,31 +163,31 @@ $ find /home/user1 -name '*.png'
 ```
 
 ### h. `gunzip`
-Un-compresses files compressed by gzip.  
+解压用 gzip 方法压缩的文件
 ```bash
 gunzip filename
 ```
 
 ### i. `gzcat`
-Lets you look at gzipped file without actually having to gunzip it.  
+在不解压的情况下，查看 gzip 压缩过的文件 
 ```bash
 gzcat filename
 ```
 
 ### j. `gzip`
-Compresses files.  
+压缩文件
 ```bash
 gzip filename
 ```
 
 ### k. `head`
-Outputs the first 10 lines of file  
+输出文件的前 10 行
 ```bash
 head filename
 ```
 
 ### l. `lpq`
-Check out the printer queue.  
+输出打印机列表  
 ```bash
 lpq
 ```
@@ -200,19 +200,19 @@ active  adnanad 59      demo                            399360 bytes
 ```
 
 ### m. `lpr`
-Print the file.  
+打印一个文件  
 ```bash
 lpr filename
 ```
 
 ### n. `lprm`
-Remove something from the printer queue.  
+从打印机任务队列中移除某个任务  
 ```bash
 lprm jobnumber
 ```
 
-### o. `ls`
-Lists your files. `ls` has many options: `-l` lists files in 'long format', which contains the exact size of the file, who owns the file, who has the right to look at it, and when it was last modified. `-a` lists all files, including hidden files. For more information on this command check this [link](https://ss64.com/bash/ls.html).  
+### o. `ls` 
+列出当前文件夹下所有文件。`ls` 有很多选项：`-l` 以详细信息格式列出文件，详细信息包括文件实际大小，文件所有者，可查看者，以及最后修改时间。`-a` 列出所有文件，包括隐藏文件。更多信息参见[这个链接](https://ss64.com/bash/ls.html)
 ```bash
 ls option
 ```
@@ -229,40 +229,40 @@ drwxr-xr-x  17 adnan  staff     578 Mar 27 23:36 .git
 -rwxr-xr-x   1 adnan  staff    2702 Mar 25 18:08 .gitignore
 </pre>
 
-### p. `more`
-Shows the first part of a file (move with space and type q to quit).  
+### p. `more`  
+输出一个文件的第一部分（用空格移动，按 q 退出）
 ```bash
 more filename
 ```
 
-### q. `mv`
-Moves a file from one location to other.  
+### q. `mv`  
+把一个文件从一个位置移动到另一个位置
 ```bash
 mv filename1 filename2
 ```
-Where `filename1` is the source path to the file and `filename2` is the destination path to the file.
+上面`filename1` 是源文件的路径， `filename2`是目标路径。（都精确到文件名）
 
-Also it can be used for rename a file.
+它也可以用来重命名文件
 ```bash
 mv old_name new_name
 ```
 
 ### r. `rm`
-Removes a file. Using this command on a directory gives you an error.
+删除一个文件
 `rm: directory: is a directory`
-To remove a directory you have to pass `-r` which will remove the content of the directory recursively. Optionally you can use `-f` flag to force the deletion i.e. without any confirmations etc.
+如果想删除文件夹，需要添加 `r` 参数，这样会递归的删除文件夹内所有内容。可以使用 `f` 参数强制删除，略过确认环节。
 ```bash
 rm filename
 ```
 
 ### s. `tail`
-Outputs the last 10 lines of file. Use `-f` to output appended data as the file grows.  
+输出文件的最后 10 行。添加`-f`可以动态输出文件新添加的文本。  
 ```bash
 tail filename
 ```
 
 ### t. `touch`
-Updates access and modification time stamps of your file. If it doesn't exists, it'll be created.
+更新某个文件的访问和修改时间戳，如果文件不存在，将会被创建。
 ```bash
 touch filename
 ```
@@ -271,7 +271,7 @@ Example:
 $ touch trick.md
 ```
 
-## 1.2. Text Operations
+## 1.2. 文本操作
 
 <table>
     <tr>
@@ -294,13 +294,13 @@ $ touch trick.md
 </table>
 
 ### a. `awk`
-awk is the most useful command for handling text files. It operates on an entire file line by line. By default it uses whitespace to separate the fields. The most common syntax for awk command is
+awk 是文本操作最有用的命令。它按行处理整个文件，它默认用空格把每一行分隔成很多字段。最常用的语法是：
 
 ```bash
 awk '/search_pattern/ { action_to_take_if_pattern_matches; }' file_to_parse
 ```
 
-Lets take following file `/etc/passwd`. Here's the sample data that this file contains:
+以 `/etc/passwd` 文件为例，该文件包含以下数据：
 ```
 root:x:0:0:root:/root:/usr/bin/zsh
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
@@ -308,11 +308,11 @@ bin:x:2:2:bin:/bin:/usr/sbin/nologin
 sys:x:3:3:sys:/dev:/usr/sbin/nologin
 sync:x:4:65534:sync:/bin:/bin/sync
 ```
-So now lets get only username from this file. Where `-F` specifies that on which base we are going to separate the fields. In our case it's `:`. `{ print $1 }` means print out the first matching field.
+我们想从这个文件中过滤出每一行的 username 部分。`-F` 参数用来指明用来把行内内容分隔的分隔符。这个例子中，我们用`:`来分隔。`{ print $1 }` 意思是输出行内第一个匹配的字段。
 ```bash
 awk -F':' '{ print $1 }' /etc/passwd
 ```
-After running the above command you will get following output.
+执行上面的命令之后，你会得到下面的输出。
 ```
 root
 daemon
@@ -320,18 +320,18 @@ bin
 sys
 sync
 ```
-For more detail on how to use `awk`, check following [link](https://www.cyberciti.biz/faq/bash-scripting-using-awk).
+更多详细信息，参见[这个链接](https://www.cyberciti.biz/faq/bash-scripting-using-awk)
 
 
 ### b. `cut`
-Remove sections from each line of files
+按行从文件中摘取文本并输出
 
 *example.txt*
 ```bash
 red riding hood went to the park to play
 ```
 
-*show me columns 2 , 7 , and 9 with a space as a separator*
+*用空格分隔每一行，并输出第2，7，9列*
 ```bash
 cut -d " " -f2,7,9 example.txt
 ```
@@ -340,9 +340,9 @@ riding park play
 ```
 
 ### c. `echo`
-Display a line of text
+输出命令之后的文本到标准输出或文件
 
-*display "Hello World"*
+*输出 "Hello World"*
 ```bash
 echo Hello World
 ```
@@ -350,7 +350,7 @@ echo Hello World
 Hello World
 ```
 
-*display "Hello World" with newlines between words*
+*输出 "Hello World"，单词间用换行符分隔*
 ```bash
 echo -ne "Hello\nWorld\n"
 ```
@@ -360,7 +360,7 @@ World
 ```
 
 ### d. `egrep`
-Print lines matching a pattern - Extended Expression (alias for: 'grep -E')
+输出文件中匹配指定模式的行，是 grep 命令的扩展模式，支持更多正则表达式（等同于 `grep -E`）。
 
 *example.txt*
 ```bash
@@ -385,7 +385,7 @@ ipsum dolor sit
 amet.
 ```
 
-*display lines that have either "Lorem" or "dolor" in them.*
+*输出包含 Lorem 或 dolor 的行*
 ```bash
 egrep '(Lorem|dolor)' example.txt
 or
@@ -401,7 +401,7 @@ ipsum dolor sit
 ```
 
 ### e. `fgrep`
-Print lines matching a pattern - FIXED pattern matching  (alias for: 'grep -F')
+输出文件中包含给定字符串的行，指定的模式将不被认做正则，而是字符串。（等同于：`grep -F`）
 
 *example.txt*
 ```bash
@@ -427,7 +427,7 @@ ipsum dolor sit
 amet.
 ```
 
-*Find the exact string '(Lorem|dolor)' in example.txt*
+* 输出在 example.txt 中包含字符串 `(Lorem|dolor)` 的所有行*
 ```bash
 fgrep '(Lorem|dolor)' example.txt
 or
@@ -438,14 +438,14 @@ foo (Lorem|dolor)
 ```
 
 ### f. `fmt`
-Simple optimal text formatter
+简单的文本格式化工具
 
-*example: example.txt (1 line)*
+*example: example.txt (1 行)*
 ```bash
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 ```
 
-*output the lines of example.txt to 20 character width*
+*把 example.txt 格式化为 20 个字符的宽度*
 ```bash
 cat example.txt | fmt -w 20
 ```
@@ -472,9 +472,9 @@ amet.
 ```
 
 ### g. `grep`
-Looks for text inside files. You can use grep to search for lines of text that match one or many regular expressions, and outputs only the matching lines.  
+在文件中查找文本。你可以用 grep 去查找匹配一个或多个正则表达式的文本行，然后输出这些行。 
 ```bash
-grep pattern filename
+grep pattern  filename
 ```
 Example:
 ```bash
@@ -483,14 +483,14 @@ _kadmin_admin:*:218:-2:Kerberos Admin Service:/var/empty:/usr/bin/false
 _kadmin_changepw:*:219:-2:Kerberos Change Password Service:/var/empty:/usr/bin/false
 _krb_kadmin:*:231:-2:Open Directory Kerberos Admin Service:/var/empty:/usr/bin/false
 ```
-You can also force grep to ignore word case by using `-i` option. `-r` can be used to search all files under the specified directory, for example:
+你也可以通过 `-i` 参数强制忽略大小写。参数`-r`则被用来递归地查找指定文件夹下的所有文件，例如： 
 ```bash
 $ grep -r admin /etc/
 ```
-And `-w` to search for words only. For more detail on `grep`, check following [link](https://www.cyberciti.biz/faq/grep-in-bash).
+参数 `-w` 表示只查找单词。关于 `grep`的更多信息，参见[这个链接](https://www.cyberciti.biz/faq/grep-in-bash)
 
 ### h. `nl`
-Number lines of files
+给文件添加行号并输出
 
 *example.txt*
 ```bash
@@ -515,7 +515,7 @@ ipsum dolor sit
 amet.
 ```
 
-*show example.txt with line numbers*
+*给 example.txt 中的内容添加行号并输出*
 ```bash
 nl -s". " example.txt 
 ```
@@ -542,14 +542,14 @@ nl -s". " example.txt
 ```
 
 ### i. `sed`
-Stream editor for filtering and transforming text
+用于过滤和替换文本的流式编辑命令
 
 *example.txt*
 ```bash
 Hello This is a Test 1 2 3 4
 ``` 
 
-*replace all spaces with hyphens*
+*把 example.txt 所有空格替换为连字符并输出*
 ```bash
 sed 's/ /-/g' example.txt
 ```
@@ -557,7 +557,7 @@ sed 's/ /-/g' example.txt
 Hello-This-is-a-Test-1-2-3-4
 ```
 
-*replace all digits with "d"*
+*把所有数字替换为 "d"*
 ```bash
 sed 's/[0-9]/d/g' example.txt
 ```
@@ -566,7 +566,7 @@ Hello This is a Test d d d d
 ```
 
 ### j. `sort`
-Sort lines of text files
+对文件中的行进行排序
 
 *example.txt*
 ```bash
@@ -579,7 +579,7 @@ e
 d
 ```
 
-*sort example.txt*
+*对 example.txt 中的行进行排序*
 ```bash
 sort example.txt
 ```
@@ -593,7 +593,7 @@ f
 g
 ```
 
-*randomize a sorted example.txt*
+*随机打乱已经排好序的 example.txt*（测试出现问题）// todo 
 ```bash
 sort example.txt | sort -R
 ```
@@ -608,14 +608,14 @@ e
 ```
 
 ### k. `tr`
-Translate or delete characters
+转换或删除字符
 
 *example.txt*
 ```bash
 Hello World Foo Bar Baz!
 ```
 
-*take all lower case letters and make them upper case*
+*把所有小写字母转换成大写字母*
 ```bash
 cat example.txt | tr 'a-z' 'A-Z' 
 ```
@@ -623,7 +623,7 @@ cat example.txt | tr 'a-z' 'A-Z'
 HELLO WORLD FOO BAR BAZ!
 ```
 
-*take all spaces and make them into newlines*
+*把所有的空格都转换为换行符*
 ```bash
 cat example.txt | tr ' ' '\n'
 ```
@@ -636,7 +636,7 @@ Baz!
 ```
 
 ### l. `uniq`
-Report or omit repeated lines
+统计或精简重复的行
 
 *example.txt*
 ```bash
@@ -650,7 +650,7 @@ d
 c
 ```
 
-*show only unique lines of example.txt (first you need to sort it, otherwise it won't see the overlap)*
+*输出 example.txt 中所有不重复的行(需要先进行排序, 否则相同行中间的行会被忽略)*
 ```bash
 sort example.txt | uniq
 ```
@@ -661,7 +661,7 @@ c
 d
 ```
 
-*show the unique items for each line, and tell me how many instances it found*
+*输出去重后的所有行，并显示不重复行中每一行在原文件中的重复次数*
 ```bash
 sort example.txt | uniq -c
 ```
@@ -673,7 +673,7 @@ sort example.txt | uniq -c
 ```
 
 ### m. `wc`
-Tells you how many lines, words and characters there are in a file.  
+输出文件中的行、单词、字符个数。  
 ```bash
 wc filename
 ```
@@ -682,7 +682,7 @@ Example:
 $ wc demo.txt
 7459   15915  398400 demo.txt
 ```
-Where `7459` is lines, `15915` is words and `398400` is characters.
+demo.txt中有 `7459` 行, `15915` 个单词以及 `398400` 个字符.
 
 ## 1.3. Directory Operations
 
@@ -695,23 +695,23 @@ Where `7459` is lines, `15915` is words and `398400` is characters.
 </table>
 
 ### a. `cd`
-Moves you from one directory to other. Running this  
+进入某个文件目录，执行：  
 ```bash
 $ cd
 ```
-moves you to home directory. This command accepts an optional `dirname`, which moves you to that directory.
+会进入 `home` 目录。这个命令接受一个可选的目录名称的参数，指示要进入的目录。
 ```bash
 cd dirname
 ```
 
 ### b. `mkdir`
-Makes a new directory.  
+创建一个新文件夹  
 ```bash
 mkdir dirname
 ```
 
 ### c. `pwd`
-Tells you which directory you currently are in.  
+显示当前所在的文件目录（绝对路径）  
 ```bash
 pwd
 ```
@@ -752,31 +752,31 @@ pwd
 </table>
 
 ### a. `bg`
-Lists stopped or background jobs; resume a stopped job in the background.
+列出所有被停止或后台运行的任务，或将一个已停止的任务后台运行。
 
 ### b. `cal`
-Shows the month's calendar.
+输出当前月份的日历
 
 ### c. `date`
-Shows the current date and time.
+输出当前日期和时间
 
 ### d. `df`
-Shows disk usage.
+输出磁盘使用统计数据
 
 ### e. `dig`
-Gets DNS information for domain.  
+输出某个域名的 DNS 信息  
 ```bash
 dig domain
 ```
 
 ### f. `du`
-Shows the disk usage of files or directories. For more information on this command check this [link](http://www.linfo.org/du.html)
+输出某些文件或目录的硬盘使用情况。更多详细信息参见[这个链接](http://www.linfo.org/du.html)
 ```bash
 du [option] [filename|directory]
 ```
 Options:
-- `-h` (human readable) Displays output it in kilobytes (K), megabytes (M) and gigabytes (G).
-- `-s` (supress or summarize) Outputs total disk space of a directory and supresses reports for subdirectories. 
+- `-h` (人类可读) 把结果以 KB、 MB 、GB 为单位输出。
+- `-s` (压缩总结) 输出一个目录总的磁盘空间占用情况，总结输出子目录的报告。
 
 Example:
 ```bash
@@ -785,68 +785,68 @@ du -sh pictures
 ```
 
 ### g. `fg`
-Brings the most recent job in the foreground.
+输出前台中最近运行的任务
 
 ### h. `finger`
-Displays information about user.  
+输出某个用户的信息 
 ```bash
 finger username
 ```
 ### i. `jobs`
-Lists the jobs running in the background, giving the job number.
+列出在后台运行的任务，同时给出任务号
 
 ### j. `last`
-Lists your last logins of specified user.  
+列出特定用户的登录记录  
 ```bash
 last yourUsername
 ```
 
 ### k. `man`
-Shows the manual for specified command.  
+输出特定命令的使用手册
 ```bash
 man command
 ```
 
 ### l. `passwd`
-Allows the current logged user to change his password.
+让当前登录的用户更改他的密码
 
 ### m. `ping`
-Pings host and outputs results.  
+ping 某个主机然后输出结果 
 ```bash
 ping host
 ```
 
 ### n. `ps`
-Lists your processes.  
+列出某个用户的所有进程  
 ```bash
 ps -u yourusername
 ```
 
 ### o. `quota`
-Shows what your disk quota is.  
+显示磁盘使用量和配额  
 ```bash
 quota -v
 ```
 
 ### p. `scp`
-Transfer files between a local host and a remote host or between two remote hosts.
+在本地主机和远程主机之间或两个远程主机之间传输文件
 
-*copy from local host to remote host*
+*从本地主机复制文件到远程主机*
 ```bash
 scp source_file user@host:directory/target_file
 ```
-*copy from remote host to local host*
+*从远程主机复制文件到本地主机*
 ```bash
 scp user@host:directory/source_file target_file
 scp -r user@host:directory/source_folder target_folder
 ```
-This command also accepts an option `-P` that can be used to connect to specific port.  
+这个命令也接受一个参数 `-P`，用来连接指定端口  
 ```bash
 scp -P port user@host:directory/source_file target_file
 ```
 
 ### q. `ssh`
-ssh (SSH client) is a program for logging into and executing commands on a remote machine.  
+ssh(SSH 客户端)是一个用来登录到远程主机并执行命令的程序  
 ```bash
 ssh user@host
 ```
@@ -856,31 +856,31 @@ ssh -p port user@host
 ```
 
 ### r. `top`
-Displays your currently active processes.
+动态展示所有活跃的进程
 
 ### s. `uname`
-Shows kernel information.  
+输出内核信息  
 ```bash
 uname -a
 ```
 
 ### t. `uptime`
-Shows current uptime.
+输出服务器运行了多长时间以及有多少个用户登录
 
 ### u. `w`
-Displays who is online.
+输出系统在线用户
 
 ### v. `wget`
-Downloads file.  
+下载文件  
 ```bash
 wget file
 ```
 
 ### w. `whoami`
-Return current logged in username.
+输出现在登录的用户的用户名
 
 ### x. `whois`
-Gets whois information for domain.  
+获取某个域名的 whois 信息  
 ```bash
 whois domain
 ```
@@ -897,29 +897,29 @@ whois domain
 </table>
 
 ### a. `kill`
-Kills (ends) the processes with the ID you gave.  
+结束指定 PID 代表的进程 
 ```bash
 kill PID
 ```
 
 ### b. `killall`
-Kill all processes with the name.  
+结束某个名字代表的所有进程
 ```bash
 killall processname
 ```
 
 ### c. &
-The `&` symbol instructs the command to run as a background process in a subshell.
+使得 `&` 之前的命令作为后台进程运行在 subshell 中
 ```bash
 command &
 ```
 
 ### d. `nohup`
-nohup stands for "No Hang Up". This allows to run command/process or shell script that can continue running in the background after you log out from a shell.
+nohup 代表 `No Hang Up`，也即不要挂起。这条命令允许其它命令、进程或shell脚本在你退出shell之后继续在后台运行
 ```bash
 nohup command
 ```
-Combine it with `&` to create background processes 
+把它和 `&` 结合使用可以创建后台进程
 ```bash
 nohup command &
 ```
@@ -927,7 +927,7 @@ nohup command &
 # 2. Basic Shell Programming
 
 
-The first line that you will write in bash script files is called `shebang`. This line in any script determines the script's ability to be executed like a standalone executable without typing sh, bash, python, php etc beforehand in the terminal.
+在 bash 脚本文件中的第一行被叫做 `shebang`。这一行决定了脚本可以像一个独立的可执行文件一样执行，而不用在终端之前输入`sh`,`bash`,`python`,`php`等。
 
 ```bash
 #!/bin/bash
@@ -935,21 +935,21 @@ The first line that you will write in bash script files is called `shebang`. Thi
 
 ## 2.1. Variables
 
-Creating variables in bash is similar to other languages. There are no data types. A variable in bash can contain a number, a character, a string of characters, etc. You have no need to declare a variable, just assigning a value to its reference will create it.
+在 bash 中创建变量跟其它语言相似。没有变量类型，bash 中的变量可以保存一个数字、一个字符、一个字符串等等。同时无需提前声明变量，给变量赋值会直接创建变量。
 
 Example:
 ```bash
 str="hello world"
 ```
 
-The above line creates a variable `str` and assigns "hello world" to it. The value of variable is retrieved by putting the `$` in the beginning of variable name.
+上面一行创建了一个变量 `str` 然后把 "hello world" 赋值给它。通过在变量名之前添加`$`符号，可以取到变量里面保存的值。
 
 Example:
 ```bash
 echo $str   # hello world
 ```
 ## 2.2. Array
-Like other languages bash has also arrays. An array is variable containing multiple values. There's no maximum limit on the size of array. Array in bash are zero based. The first element is indexed with element 0. There are several ways for creating arrays in bash. Which are given below.
+像其它语言一样，bash 也有数组类型。bash 中的数组是一个保存着很多值的变量，数组的长度没有限制，下标也是从 0 开始。在 bash 中有好几种方法创建一个数组，如下所示。
 
 Examples:
 ```bash
@@ -959,50 +959,51 @@ array[2] = val
 array=([2]=val [0]=val [1]=val)
 array=(val val val)
 ```
-To display a value at specific index use following syntax:
+使用如下语法获得数组特定位置的值：
 
 ```bash
-${array[i]}     # where i is the index
+${array[i]}     # i是数组下标
 ```
 
-If no index is supplied, array element 0 is assumed. To find out how many values there are in the array use the following syntax:
+如果没有指定数组下标，默认返回第一个元素。想知道数组中有多少个元素，使用下面的语法：
 
 ```bash
 ${#array[@]}
 ```
 
-Bash has also support for the ternary conditions. Check some examples below.
+Bash 也支持三元运算符，如下面的例子所示：
 
 ```bash
-${varname:-word}    # if varname exists and isn't null, return its value; otherwise return word
-${varname:=word}    # if varname exists and isn't null, return its value; otherwise set it word and then return its value
-${varname:+word}    # if varname exists and isn't null, return word; otherwise return null
-${varname:offset:length}    # performs substring expansion. It returns the substring of $varname starting at offset and up to length characters
+${varname:-word}    # 如果 varname 存在而且不为 null，返回它的值，否则返回 word
+${varname:=word}    # 如果 varname 存在而且不为 null，返回它的值，否则把word赋值给它并且返回 word
+${varname:+word}    # 如果 varname 存在而且不为 null，返回 word，否则返回 null
+${varname:offset:length}    # 它返回 $varname 的子字符串，从 offset 处开始，长度为 length
 ```
 
 ## 2.3 String Substitution
 
-Check some of the syntax on how to manipulate strings
+通过下面的语法来学习字符串相关操作
 
 ```bash
-${variable#pattern}         # if the pattern matches the beginning of the variable's value, delete the shortest part that matches and return the rest
-${variable##pattern}        # if the pattern matches the beginning of the variable's value, delete the longest part that matches and return the rest
-${variable%pattern}         # if the pattern matches the end of the variable's value, delete the shortest part that matches and return the rest
-${variable%%pattern}        # if the pattern matches the end of the variable's value, delete the longest part that matches and return the rest
-${variable/pattern/string}  # the longest match to pattern in variable is replaced by string. Only the first match is replaced
-${variable//pattern/string} # the longest match to pattern in variable is replaced by string. All matches are replaced
-${#varname}     # returns the length of the value of the variable as a character string
+${variable#pattern}         # 如果 pattern 匹配变量值的起始部分，删除匹配 pattern 的最短的部分，然后返回剩余的
+${variable##pattern}        # 如果 pattern 匹配变量值的起始部分，删除匹配 pattern 的最长的部分，然后返回剩余的
+${variable%pattern}         # 如果 pattern 匹配变量值的结束部分，删除匹配 pattern 的最短的部分，然后返回剩余的
+${variable%%pattern}        # 如果 pattern 匹配变量值的结束部分，删除匹配 pattern 的最长的部分，然后返回剩余的
+${variable/pattern/string}  # 把变量值中匹配 pattern 的最长的部分替换为 string，只替换第一个匹配的部分
+${variable//pattern/string} # 把变量值中匹配 pattern 的最长的部分替换为 string，全局进行替换
+${#varname}     # 返回变量值作为一个字符串的长度
 ```
 
 ## 2.4. Functions
-As in almost any programming language, you can use functions to group pieces of code in a more logical way or practice the divine art of recursion. Declaring a function is just a matter of writing function my_func { my_code }. Calling a function is just like calling another program, you just write its name.
+As in almost any programming language, you can use functions to group pieces of code in a more logical way or practice the divine art of recursion. Declaring a function is just a matter of writing . Calling a function is just like calling another program, you just write its name.
+就像在其它编程语言中那样，您可以使用 function 来以更合乎逻辑的方式聚合代码，或实现递归的神圣艺术。声明一个 function 只需要写下`function my_func { my_code }` ，调用 function 就像调用另外的程序一样，使用方法名称即可。
 
 ```bash
 function name() {
     shell commands
 }
 ```
-
+ 
 Example:
 ```bash
 #!/bin/bash
@@ -1017,11 +1018,11 @@ function say {
 say "hello world!"
 ```
 
-When you run the above example the `hello` function will output "world!". The above two functions `hello` and `say` are identical. The main difference is function `say`. This function, prints the first argument it receives. Arguments, within functions, are treated in the same manner as arguments given to the script.
+当你运行上面例子中的 hello 方法时，它会输出 "world!"。上面的两个方法 `hello` 和 `say` 一模一样的， `say` 有一些不同，这个方法会打印出它接受到的第一个参数。方法中的参数，跟脚本语言中的处理方式一样。
 
 ## 2.5. Conditionals
 
-The conditional statement in bash is similar to other programming languages. Conditions have many form like the most basic form is `if` expression `then` statement where statement is only executed if expression is true.
+bash 中的条件语句跟其他编程语言类似。条件语句有很多种形式，就像最常见的基本形式是 `if` 表达式 `then` 语句，代表如果表达式为真，则执行响应的语句。
 
 ```bash
 if [expression]; then
@@ -1031,7 +1032,7 @@ else
 fi
 ```
 
-Sometime if conditions becoming confusing so you can write the same condition using the `case statements`.
+有些时候如果条件语句变得太复杂，你可以用 `case statements` 来完成相同的条件判断功能。
 
 ```bash
 case expression in
@@ -1046,44 +1047,44 @@ esac
 Expression Examples:
 
 ```bash
-statement1 && statement2  # both statements are true
-statement1 || statement2  # at least one of the statements is true
+statement1 && statement2  # 两个语句都为真
+statement1 || statement2  # 至少一个语句为真
 
-str1=str2       # str1 matches str2
-str1!=str2      # str1 does not match str2
-str1<str2       # str1 is less than str2
-str1>str2       # str1 is greater than str2
--n str1         # str1 is not null (has length greater than 0)
--z str1         # str1 is null (has length 0)
+str1=str2       # str1 匹配 str2
+str1!=str2      # str1 不匹配 str2
+str1<str2       # str1 小于 str2
+str1>str2       # str1 大于 str2
+-n str1         # str1 不是 null (长度大于 0)
+-z str1         # str1 是 null (长度为 0)
 
--a file         # file exists
--d file         # file exists and is a directory
--e file         # file exists; same -a
--f file         # file exists and is a regular file (i.e., not a directory or other special type of file)
--r file         # you have read permission
--s file         # file exists and is not empty
--w file         # you have write permission
--x file         # you have execute permission on file, or directory search permission if it is a directory
--N file         # file was modified since it was last read
--O file         # you own file
--G file         # file's group ID matches yours (or one of yours, if you are in multiple groups)
+-a file         # 文件存在
+-d file         # 文件存在而且是目录
+-e file         # 文件存在，跟 -a 一样
+-f file         # 文件存在，而且是常规文件（不是目录或者其他特殊类型的文件）
+-r file         # 你有读权限
+-s file         # 文件存在而且不为空
+-w file         # 你有写权限
+-x file         # 你对文件有执行权限，如果 file 是目录的话，你对它有搜索权限
+-N file         # 从上次读之后文件被修改过
+-O file         # 你是文件所有者
+-G file         # 文件的 group ID 跟你的 group ID （或之一，如果你在很多分组里）相同
 
-file1 -nt file2     # file1 is newer than file2
-file1 -ot file2     # file1 is older than file2
+file1 -nt file2     # file1 比 file2 更新
+file1 -ot file2     # file1 比 file2 更老
 
--lt     # less than
--le     # less than or equal
--eq     # equal
--ge     # greater than or equal
--gt     # greater than
--ne     # not equal
+-lt     # 小于
+-le     # 小于等于
+-eq     # 等于
+-ge     # 大于等于
+-gt     # 大于
+-ne     # 不等于
 ```
 
 ## 2.6. Loops
 
-There are three types of loops in bash. `for`, `while` and `until`.
-
-Different `for` Syntax:
+bash 中有三种类型的循环。`for`, `while` 和 `until`。
+ 
+不同的 `for` 语法：
 ```bash
 for x := 1 to 10 do
 begin
@@ -1101,14 +1102,14 @@ do
 done
 ```
 
-`while` Syntax:
+`while` 语法:
 ```bash
 while condition; do
   statements
 done
 ```
 
-`until` Syntax:
+`until` 语法:
 ```bash
 until condition; do
   statements
@@ -1117,11 +1118,11 @@ done
 
 # 3. Tricks
 
-## Set an alias
-Open `bash_profile` by running following command `nano ~/.bash_profile`
-> alias dockerlogin='ssh www-data@adnan.local -p2222'  # add your alias in .bash_profile
+## 设置别名
+执行 `nano ~/.bash_profile` 来打开 `bash_profile`。
+> alias dockerlogin='ssh www-data@adnan.local -p2222'  # 在 .bash_profile 中设置别名
 
-## To quickly go to a specific directory
+## 快速进入某个目录
 nano ~/.bashrc
 > export hotellogs="/workspace/hotel-api/storage/logs"
 
@@ -1130,39 +1131,39 @@ source ~/.bashrc
 cd $hotellogs
 ```
 
-## Exit traps
+## 跳出陷阱
 
-Make your bash scripts more robust by reliably performing cleanup.
+通过执行清理语句使得你的脚本更有鲁棒性
 
 ```bash
 function finish {
-  # your cleanup here. e.g. kill any forked processes
+  # 在这里执行清理语句，例如，杀掉所有 fork 的进程。
   jobs -p | xargs kill
 }
 trap finish EXIT
 ```
 
-## Saving your environment variables
+## 保存环境变量
 
-When you do `export FOO = BAR`, your variable is only exported in this current shell and all its children, to persist in the future you can simply append in your `~/.bash_profile` file the command to export your variable
+当你在 shell 中执行  `export FOO = BAR`, 环境变量只在当前 shell 和它的子 shell 中存在，如果想在将来能够永久使用这个环境变量，只需要在 `~/.bash_profile` 文件后面添加要执行的命令即可。
 ```bash
 echo export FOO=BAR >> ~/.bash_profile
 ```
 
-## Accessing your scripts
+## 访问你的脚本
 
-You can easily access your scripts by creating a bin folder in your home with `mkdir ~/bin`, now all the scripts you put in this folder you can access in any directory.
+通过在 home 目录下创建 bin 文件夹， 你可以很容易的访问你的脚本，`mkdir ~/bin` 之后，在 bin 目录里面的所有脚本都能在任何别的目录下访问到。
 
-If you can not access, try append the code below in your `~/.bash_profile` file and after do `source ~/.bash_profile`.
+如果还是不能访问，把下面的代码添加到 `~/.bash_profile` 文件中，然后执行`source ~/.bash_profile`。
 ```bash
-    # set PATH so it includes user's private bin if it exists
+    # 如果用户的私有 bin 目录存在的话，把它添加到 PATH 变量中
     if [ -d "$HOME/bin" ] ; then
         PATH="$HOME/bin:$PATH"
     fi
 ```
 
-# 4. Debugging
-You can easily debug the bash script by passing different options to `bash` command. For example `-n` will not run commands and check for syntax errors only. `-v` echo commands before running them. `-x` echo commands after command-line processing.
+# 4. 调试
+你可以很容易地通过传递不同的参数给 `bash` 命令来调试脚本。例如， `-n` 将会只检查脚本的语法错误而不执行脚本。 `-v` 将会在命令执行前输出它们。 `-x` 将会在命令行处理之后输出命令。
 
 ```bash
 bash -n scriptname
@@ -1170,11 +1171,11 @@ bash -v scriptname
 bash -x scriptname
 ```
 
-## Contribution
+## 贡献
 
-- Report issues [How to](https://help.github.com/articles/creating-an-issue/)
-- Open pull request with improvements [How to](https://help.github.com/articles/about-pull-requests/)
-- Spread the word
+- 报告问题 [How to](https://help.github.com/articles/creating-an-issue/)
+- 提交改进型的合并请求 [How to](https://help.github.com/articles/about-pull-requests/)
+- 帮助传播
 
 ## Translation
 - [Turkish | Türkçe](https://github.com/omergulen/bash-guide)
