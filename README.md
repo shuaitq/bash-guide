@@ -27,7 +27,7 @@
 ```bash
 export
 ```
-Example:
+示例：
 ```bash
 $ export
 AWS_HOME=/Users/adnanadnan/.aws
@@ -44,7 +44,7 @@ whatis 显示某个用户命令、系统调用或库函数的描述文档，或�
 ```bash
 whatis something
 ```
-Example:
+示例：
 ```bash
 $ whatis bash
 bash (1)             - GNU Bourne-Again SHell
@@ -55,7 +55,7 @@ whereis 查找可执行文件、源文件或者说明文档的位置，使用的
 ```bash
 whereis name
 ```
-Example:
+示例：
 ```bash
 $ whereis php
 /usr/bin/php
@@ -66,7 +66,7 @@ which 在环境变量 PATH 指定的所有文件夹中查找可执行文件的�
 ```bash
 which program_name 
 ```
-Example:
+示例：
 ```bash
 $ which php
 /c/xampp/php/php
@@ -146,7 +146,7 @@ diff filename1 filename2
 ```bash
 file filename
 ```
-Example:
+示例：
 ```bash
 $ file index.html
  index.html: HTML document, ASCII text
@@ -156,7 +156,7 @@ $ file index.html
 ```bash
 find directory options pattern
 ```
-Example:
+示例：
 ```bash
 $ find . -name README.md
 $ find /home/user1 -name '*.png'
@@ -191,7 +191,7 @@ head filename
 ```bash
 lpq
 ```
-Example:
+示例：
 ```bash
 $ lpq
 Rank    Owner   Job     File(s)                         Total Size
@@ -216,7 +216,7 @@ lprm jobnumber
 ```bash
 ls option
 ```
-Example:
+示例：
 <pre>
 $ ls -la
 rwxr-xr-x   33 adnan  staff    1122 Mar 27 18:44 .
@@ -266,7 +266,7 @@ tail filename
 ```bash
 touch filename
 ```
-Example:
+示例：
 ```bash
 $ touch trick.md
 ```
@@ -476,7 +476,7 @@ amet.
 ```bash
 grep pattern  filename
 ```
-Example:
+示例：
 ```bash
 $ grep admin /etc/passwd
 _kadmin_admin:*:218:-2:Kerberos Admin Service:/var/empty:/usr/bin/false
@@ -677,7 +677,7 @@ sort example.txt | uniq -c
 ```bash
 wc filename
 ```
-Example:
+示例：
 ```bash
 $ wc demo.txt
 7459   15915  398400 demo.txt
@@ -778,7 +778,7 @@ Options:
 - `-h` (人类可读) 把结果以 KB、 MB 、GB 为单位输出。
 - `-s` (压缩总结) 输出一个目录总的磁盘空间占用情况，总结输出子目录的报告。
 
-Example:
+示例：
 ```bash
 du -sh pictures
 1.4M pictures
@@ -850,7 +850,7 @@ ssh(SSH 客户端)是一个用来登录到远程主机并执行命令的程序
 ```bash
 ssh user@host
 ```
-This command also accepts an option `-p` that can be used to connect to specific port.  
+这个命令也接受一个可选参数 `-p`，用来指定连接到特定的端口。
 ```bash
 ssh -p port user@host
 ```
@@ -937,14 +937,14 @@ nohup command &
 
 在 bash 中创建变量跟其它语言相似。没有变量类型，bash 中的变量可以保存一个数字、一个字符、一个字符串等等。同时无需提前声明变量，给变量赋值会直接创建变量。
 
-Example:
+示例：
 ```bash
 str="hello world"
 ```
 
 上面一行创建了一个变量 `str` 然后把 "hello world" 赋值给它。通过在变量名之前添加`$`符号，可以取到变量里面保存的值。
 
-Example:
+示例：
 ```bash
 echo $str   # hello world
 ```
@@ -1004,7 +1004,7 @@ function name() {
 }
 ```
  
-Example:
+示例：
 ```bash
 #!/bin/bash
 function hello {
