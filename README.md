@@ -995,7 +995,6 @@ ${#varname}     # 返回变量值作为一个字符串的长度
 ```
 
 ## 2.4. Functions
-As in almost any programming language, you can use functions to group pieces of code in a more logical way or practice the divine art of recursion. Declaring a function is just a matter of writing . Calling a function is just like calling another program, you just write its name.
 就像在其它编程语言中那样，您可以使用 function 来以更合乎逻辑的方式聚合代码，或实现递归的神圣艺术。声明一个 function 只需要写下`function my_func { my_code }` ，调用 function 就像调用另外的程序一样，使用方法名称即可。
 
 ```bash
