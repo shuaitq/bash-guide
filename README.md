@@ -1086,11 +1086,6 @@ bash 中有三种类型的循环。`for`, `while` 和 `until`。
  
 不同的 `for` 语法：
 ```bash
-for x := 1 to 10 do
-begin
-  statements
-end
-
 for name [in list]
 do
   statements that can use $name
